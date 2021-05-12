@@ -1,0 +1,26 @@
+service: hello-serverless
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  region: ap-south-1
+  stage: dev
+  memorySize: 128
+  timeout: 3
+
+functions:
+  hello:
+    handler: handler.hello
+    memorySize: 256
+    timeout: 4
+
+  add:
+    handler: add.add
+    events:
+      - http:
+          path: math/add
+          method: post
+          cors: true

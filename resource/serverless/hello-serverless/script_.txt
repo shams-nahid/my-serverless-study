@@ -1,0 +1,15 @@
+sls invoke local -f hello
+
+sls invoke local -f hello -d '{\"key\": \"value\"}'
+
+Deploy the stack
+cmd: sls deploy
+
+Remove the stack
+cmd: sls remove
+
+Deploy stack with override the stage
+cmd: sls deploy -s prod
+
+Deploy specific function
+cmd: sls deploy -s prod -f add
