@@ -12,4 +12,17 @@ Deploy stack with override the stage
 cmd: sls deploy -s prod
 
 Deploy specific function
-cmd: sls deploy -s prod -f add
+cmd: sls deploy -f add
+
+Run API Gateway offline
+Install serverless offline
+cmd: npm install --save-dev serverless-offline
+Add the plugin to the yaml file
+run the offline api Gateway
+cmd: sls offline
+getting logs from the serverless method
+cmd: sls logs -f add -s dev
+getting logs for last 5 mins
+cmd: sls logs -f add --startTime 5m
+get live logs
+cmd: sls logs -f add -t

@@ -90,13 +90,19 @@
           "HelloLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/hello-serverless-prod-hello"
+              "LogGroupName": "/aws/lambda/hello-serverless-dev-hello"
             }
           },
           "AddLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/hello-serverless-prod-add"
+              "LogGroupName": "/aws/lambda/hello-serverless-dev-add"
+            }
+          },
+          "AddBmLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/hello-serverless-dev-addBm"
             }
           },
           "IamRoleLambdaExecution": {
@@ -125,7 +131,7 @@
                       "-",
                       [
                         "hello-serverless",
-                        "prod",
+                        "dev",
                         "lambda"
                       ]
                     ]
@@ -141,7 +147,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/hello-serverless-prod*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/hello-serverless-dev*:*"
                           }
                         ]
                       },
@@ -152,7 +158,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/hello-serverless-prod*:*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/hello-serverless-dev*:*:*"
                           }
                         ]
                       }
@@ -166,14 +172,28 @@
                   "-",
                   [
                     "hello-serverless",
-                    "prod",
+                    "dev",
                     {
                       "Ref": "AWS::Region"
                     },
                     "lambdaRole"
                   ]
                 ]
-              }
+              },
+              "ManagedPolicyArns": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+                    ]
+                  ]
+                }
+              ]
             }
           },
           "HelloLambdaFunction": {
@@ -183,17 +203,26 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/hello-serverless/prod/1620852678707-2021-05-12T20:51:18.707Z/hello-serverless.zip"
+                "S3Key": "serverless/hello-serverless/dev/1620899634342-2021-05-13T09:53:54.342Z/hello-serverless.zip"
               },
               "Handler": "handler.hello",
               "Runtime": "nodejs12.x",
-              "FunctionName": "hello-serverless-prod-hello",
+              "FunctionName": "hello-serverless-dev-hello",
               "MemorySize": 256,
               "Timeout": 4,
               "Role": {
                 "Fn::GetAtt": [
                   "IamRoleLambdaExecution",
                   "Arn"
+                ]
+              },
+              "VpcConfig": {
+                "SecurityGroupIds": [
+                  "sg-8a07c1e4"
+                ],
+                "SubnetIds": [
+                  "subnet-7458830f",
+                  "subnet-480c2f20"
                 ]
               }
             },
@@ -208,11 +237,11 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/hello-serverless/prod/1620852678707-2021-05-12T20:51:18.707Z/hello-serverless.zip"
+                "S3Key": "serverless/hello-serverless/dev/1620899634342-2021-05-13T09:53:54.342Z/hello-serverless.zip"
               },
               "Handler": "add.add",
               "Runtime": "nodejs12.x",
-              "FunctionName": "hello-serverless-prod-add",
+              "FunctionName": "hello-serverless-dev-add",
               "MemorySize": 128,
               "Timeout": 3,
               "Role": {
@@ -226,30 +255,65 @@
               "AddLogGroup"
             ]
           },
-          "HelloLambdaVersionePEkdHm3qqChs9BWQSLge46SPpjVrcPt1vEkw6vvGdc": {
+          "AddBmLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/hello-serverless/dev/1620899634342-2021-05-13T09:53:54.342Z/hello-serverless.zip"
+              },
+              "Handler": "add-bm.add",
+              "Runtime": "nodejs12.x",
+              "FunctionName": "hello-serverless-dev-addBm",
+              "MemorySize": 128,
+              "Timeout": 3,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "AddBmLogGroup"
+            ]
+          },
+          "HelloLambdaVersionx0qA2lzqk6wKG2aGW3Aoz73WsF5OeMfhUGKwraKbsbw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "HelloLambdaFunction"
               },
-              "CodeSha256": "XonAf0gFsukmyFnza2KX1Yd3jgc7NpX3k2EOOWRQdvk="
+              "CodeSha256": "cnXqxLdpZNvurptnrGtx1pBO/ebmzlZtn6kfYhNQt1g="
             }
           },
-          "AddLambdaVersionfLY6ym8dn1qDVxEGkhUr9IPu8efPjkFLBqw4UV1M70": {
+          "AddLambdaVersionT8eXVFN9Wv4T1PVYID5zCMUOoMjA6MlSIb5zIwijLaI": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AddLambdaFunction"
               },
-              "CodeSha256": "XonAf0gFsukmyFnza2KX1Yd3jgc7NpX3k2EOOWRQdvk="
+              "CodeSha256": "cnXqxLdpZNvurptnrGtx1pBO/ebmzlZtn6kfYhNQt1g="
+            }
+          },
+          "AddBmLambdaVersionEN5vCBwihMVRcW96YevMdOzOthMZOfTcJkewfmvL1E": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "AddBmLambdaFunction"
+              },
+              "CodeSha256": "cnXqxLdpZNvurptnrGtx1pBO/ebmzlZtn6kfYhNQt1g="
             }
           },
           "ApiGatewayRestApi": {
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
-              "Name": "prod-hello-serverless",
+              "Name": "dev-hello-serverless",
               "EndpointConfiguration": {
                 "Types": [
                   "EDGE"
@@ -280,6 +344,18 @@
                 "Ref": "ApiGatewayResourceMath"
               },
               "PathPart": "add",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceMathAddbm": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Ref": "ApiGatewayResourceMath"
+              },
+              "PathPart": "addBm",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -373,17 +449,240 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1620852676901": {
+          "ApiGatewayMethodMathAddbmPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceMathAddbm"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "AddBmLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                },
+                "PassthroughBehavior": "NEVER",
+                "RequestTemplates": {
+                  "application/json": "#set($inputRoot = $input.path('$')) {\n  \"num1\": $inputRoot.input.operand1,\n  \"num2\": $inputRoot.input.operand2\n}\n",
+                  "application/x-www-form-urlencoded": "\n    #define( $body )\n      {\n      #foreach( $token in $input.path('$').split('&') )\n        #set( $keyVal = $token.split('=') )\n        #set( $keyValSize = $keyVal.size() )\n        #if( $keyValSize >= 1 )\n          #set( $key = $util.escapeJavaScript($util.urlDecode($keyVal[0])) )\n          #if( $keyValSize >= 2 )\n            #set($val = $util.escapeJavaScript($util.urlDecode($keyVal[1])).replaceAll(\"\\\\'\",\"'\"))\n          #else\n            #set( $val = '' )\n          #end\n          \"$key\": \"$val\"#if($foreach.hasNext),#end\n        #end\n      #end\n      }\n    #end\n\n    \n  #define( $loop )\n    {\n    #foreach($key in $map.keySet())\n        #set( $k = $util.escapeJavaScript($key) )\n        #set( $v = $util.escapeJavaScript($map.get($key)).replaceAll(\"\\\\'\", \"'\") )\n        \"$k\":\n          \"$v\"\n          #if( $foreach.hasNext ) , #end\n    #end\n    }\n  #end\n\n  {\n    \"body\": $body,\n    \"method\": \"$context.httpMethod\",\n    \"principalId\": \"$context.authorizer.principalId\",\n    \"stage\": \"$context.stage\",\n\n    \"cognitoPoolClaims\" : {\n       \n       \"sub\": \"$context.authorizer.claims.sub\"\n    },\n\n    #set( $map = $context.authorizer )\n    \"enhancedAuthContext\": $loop,\n\n    #set( $map = $input.params().header )\n    \"headers\": $loop,\n\n    #set( $map = $input.params().querystring )\n    \"query\": $loop,\n\n    #set( $map = $input.params().path )\n    \"path\": $loop,\n\n    #set( $map = $context.identity )\n    \"identity\": $loop,\n\n    #set( $map = $stageVariables )\n    \"stageVariables\": $loop,\n\n    \"requestPath\": \"$context.resourcePath\"\n  }\n\n  "
+                },
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "SelectionPattern": "",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Content-Type": "'application/json'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($inputRoot = $input.path('$')) {\n  \"result\": $inputRoot\n}\n"
+                    }
+                  },
+                  {
+                    "StatusCode": "400",
+                    "SelectionPattern": "[\\s\\S]*\\[400\\][\\s\\S]*",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Content-Type": "'application/json'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($inputRoot = $input.path('$')) {\n  \"result\": $inputRoot\n}\n"
+                    }
+                  },
+                  {
+                    "StatusCode": "401",
+                    "SelectionPattern": "[\\s\\S]*\\[401\\][\\s\\S]*",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Content-Type": "'application/json'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($inputRoot = $input.path('$')) {\n  \"result\": $inputRoot\n}\n"
+                    }
+                  },
+                  {
+                    "StatusCode": "403",
+                    "SelectionPattern": "[\\s\\S]*\\[403\\][\\s\\S]*",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Content-Type": "'application/json'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($inputRoot = $input.path('$')) {\n  \"result\": $inputRoot\n}\n"
+                    }
+                  },
+                  {
+                    "StatusCode": "404",
+                    "SelectionPattern": "[\\s\\S]*\\[404\\][\\s\\S]*",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Content-Type": "'application/json'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($inputRoot = $input.path('$')) {\n  \"result\": $inputRoot\n}\n"
+                    }
+                  },
+                  {
+                    "StatusCode": "422",
+                    "SelectionPattern": "[\\s\\S]*\\[422\\][\\s\\S]*",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Content-Type": "'application/json'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($inputRoot = $input.path('$')) {\n  \"result\": $inputRoot\n}\n"
+                    }
+                  },
+                  {
+                    "StatusCode": "500",
+                    "SelectionPattern": "[\\s\\S]*(Process\\s?exited\\s?before\\s?completing\\s?request|\\[500\\])[\\s\\S]*",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Content-Type": "'application/json'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($inputRoot = $input.path('$')) {\n  \"result\": $inputRoot\n}\n"
+                    }
+                  },
+                  {
+                    "StatusCode": "502",
+                    "SelectionPattern": "[\\s\\S]*\\[502\\][\\s\\S]*",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Content-Type": "'application/json'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($inputRoot = $input.path('$')) {\n  \"result\": $inputRoot\n}\n"
+                    }
+                  },
+                  {
+                    "StatusCode": "504",
+                    "SelectionPattern": "([\\s\\S]*\\[504\\][\\s\\S]*)|(.*Task timed out after \\d+\\.\\d+ seconds$)",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Content-Type": "'application/json'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($inputRoot = $input.path('$')) {\n  \"result\": $inputRoot\n}\n"
+                    }
+                  }
+                ]
+              },
+              "MethodResponses": [
+                {
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Content-Type": true
+                  },
+                  "ResponseModels": {},
+                  "StatusCode": "200"
+                },
+                {
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Content-Type": true
+                  },
+                  "ResponseModels": {},
+                  "StatusCode": "400"
+                },
+                {
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Content-Type": true
+                  },
+                  "ResponseModels": {},
+                  "StatusCode": "401"
+                },
+                {
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Content-Type": true
+                  },
+                  "ResponseModels": {},
+                  "StatusCode": "403"
+                },
+                {
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Content-Type": true
+                  },
+                  "ResponseModels": {},
+                  "StatusCode": "404"
+                },
+                {
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Content-Type": true
+                  },
+                  "ResponseModels": {},
+                  "StatusCode": "422"
+                },
+                {
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Content-Type": true
+                  },
+                  "ResponseModels": {},
+                  "StatusCode": "500"
+                },
+                {
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Content-Type": true
+                  },
+                  "ResponseModels": {},
+                  "StatusCode": "502"
+                },
+                {
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Content-Type": true
+                  },
+                  "ResponseModels": {},
+                  "StatusCode": "504"
+                }
+              ]
+            }
+          },
+          "ApiGatewayDeployment1620899630568": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               },
-              "StageName": "prod"
+              "StageName": "dev"
             },
             "DependsOn": [
               "ApiGatewayMethodMathAddOptions",
-              "ApiGatewayMethodMathAddPost"
+              "ApiGatewayMethodMathAddPost",
+              "ApiGatewayMethodMathAddbmPost"
             ]
           },
           "AddLambdaPermissionApiGateway": {
@@ -422,6 +721,43 @@
                 ]
               }
             }
+          },
+          "AddBmLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "AddBmLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
           }
         },
         "Outputs": {
@@ -430,25 +766,34 @@
               "Ref": "ServerlessDeploymentBucket"
             },
             "Export": {
-              "Name": "sls-hello-serverless-prod-ServerlessDeploymentBucketName"
+              "Name": "sls-hello-serverless-dev-ServerlessDeploymentBucketName"
             }
           },
           "HelloLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "HelloLambdaVersionePEkdHm3qqChs9BWQSLge46SPpjVrcPt1vEkw6vvGdc"
+              "Ref": "HelloLambdaVersionx0qA2lzqk6wKG2aGW3Aoz73WsF5OeMfhUGKwraKbsbw"
             },
             "Export": {
-              "Name": "sls-hello-serverless-prod-HelloLambdaFunctionQualifiedArn"
+              "Name": "sls-hello-serverless-dev-HelloLambdaFunctionQualifiedArn"
             }
           },
           "AddLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AddLambdaVersionfLY6ym8dn1qDVxEGkhUr9IPu8efPjkFLBqw4UV1M70"
+              "Ref": "AddLambdaVersionT8eXVFN9Wv4T1PVYID5zCMUOoMjA6MlSIb5zIwijLaI"
             },
             "Export": {
-              "Name": "sls-hello-serverless-prod-AddLambdaFunctionQualifiedArn"
+              "Name": "sls-hello-serverless-dev-AddLambdaFunctionQualifiedArn"
+            }
+          },
+          "AddBmLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "AddBmLambdaVersionEN5vCBwihMVRcW96YevMdOzOthMZOfTcJkewfmvL1E"
+            },
+            "Export": {
+              "Name": "sls-hello-serverless-dev-AddBmLambdaFunctionQualifiedArn"
             }
           },
           "ServiceEndpoint": {
@@ -469,12 +814,12 @@
                   {
                     "Ref": "AWS::URLSuffix"
                   },
-                  "/prod"
+                  "/dev"
                 ]
               ]
             },
             "Export": {
-              "Name": "sls-hello-serverless-prod-ServiceEndpoint"
+              "Name": "sls-hello-serverless-dev-ServiceEndpoint"
             }
           }
         }
@@ -563,19 +908,29 @@
       },
       "vpc": {}
     },
+    "plugins": [
+      "serverless-offline"
+    ],
     "pluginsData": {},
     "functions": {
       "hello": {
         "handler": "handler.hello",
         "memorySize": 256,
         "timeout": 4,
+        "vpc": {
+          "securityGroupIds": {
+            "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"HelloLambdaFunction\"][\"Properties\"][\"VpcConfig\"][\"SecurityGroupIds\"]"
+          },
+          "subnetIds": {
+            "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"HelloLambdaFunction\"][\"Properties\"][\"VpcConfig\"][\"SubnetIds\"]"
+          }
+        },
         "events": [],
-        "name": "hello-serverless-prod-hello",
+        "name": "hello-serverless-dev-hello",
         "package": {},
         "memory": 256,
         "runtime": "nodejs12.x",
-        "vpc": {},
-        "versionLogicalId": "HelloLambdaVersionePEkdHm3qqChs9BWQSLge46SPpjVrcPt1vEkw6vvGdc"
+        "versionLogicalId": "HelloLambdaVersionx0qA2lzqk6wKG2aGW3Aoz73WsF5OeMfhUGKwraKbsbw"
       },
       "add": {
         "handler": "add.add",
@@ -607,13 +962,74 @@
             }
           }
         ],
-        "name": "hello-serverless-prod-add",
+        "name": "hello-serverless-dev-add",
         "package": {},
         "memory": 128,
         "timeout": 3,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AddLambdaVersionfLY6ym8dn1qDVxEGkhUr9IPu8efPjkFLBqw4UV1M70"
+        "versionLogicalId": "AddLambdaVersionT8eXVFN9Wv4T1PVYID5zCMUOoMjA6MlSIb5zIwijLaI"
+      },
+      "addBm": {
+        "handler": "add-bm.add",
+        "events": [
+          {
+            "http": {
+              "path": "math/addBm",
+              "method": "post",
+              "integration": "AWS",
+              "request": {
+                "template": {
+                  "application/json": "#set($inputRoot = $input.path('$')) {\n  \"num1\": $inputRoot.input.operand1,\n  \"num2\": $inputRoot.input.operand2\n}\n"
+                },
+                "passThrough": "NEVER"
+              },
+              "response": {
+                "headers": {
+                  "Access-Control-Allow-Origin": "'*'",
+                  "Content-Type": "'application/json'"
+                },
+                "template": "#set($inputRoot = $input.path('$')) {\n  \"result\": $inputRoot\n}\n",
+                "statusCodes": {
+                  "200": {
+                    "pattern": ""
+                  },
+                  "400": {
+                    "pattern": "[\\s\\S]*\\[400\\][\\s\\S]*"
+                  },
+                  "401": {
+                    "pattern": "[\\s\\S]*\\[401\\][\\s\\S]*"
+                  },
+                  "403": {
+                    "pattern": "[\\s\\S]*\\[403\\][\\s\\S]*"
+                  },
+                  "404": {
+                    "pattern": "[\\s\\S]*\\[404\\][\\s\\S]*"
+                  },
+                  "422": {
+                    "pattern": "[\\s\\S]*\\[422\\][\\s\\S]*"
+                  },
+                  "500": {
+                    "pattern": "[\\s\\S]*(Process\\s?exited\\s?before\\s?completing\\s?request|\\[500\\])[\\s\\S]*"
+                  },
+                  "502": {
+                    "pattern": "[\\s\\S]*\\[502\\][\\s\\S]*"
+                  },
+                  "504": {
+                    "pattern": "([\\s\\S]*\\[504\\][\\s\\S]*)|(.*Task timed out after \\d+\\.\\d+ seconds$)"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "name": "hello-serverless-dev-addBm",
+        "package": {},
+        "memory": 128,
+        "timeout": 3,
+        "runtime": "nodejs12.x",
+        "vpc": {},
+        "versionLogicalId": "AddBmLambdaVersionEN5vCBwihMVRcW96YevMdOzOthMZOfTcJkewfmvL1E"
       }
     },
     "configValidationMode": "warn",
@@ -624,6 +1040,9 @@
         "$ref": "$[\"service\"][\"serviceObject\"]"
       },
       "frameworkVersion": "2",
+      "plugins": {
+        "$ref": "$[\"service\"][\"plugins\"]"
+      },
       "provider": {
         "$ref": "$[\"service\"][\"provider\"]"
       },
@@ -635,7 +1054,7 @@
     "artifact": "/home/nahid/Documents/my-serverless-study/resource/serverless/hello-serverless/.serverless/hello-serverless.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/hello-serverless/prod/1620852678707-2021-05-12T20:51:18.707Z",
+    "artifactDirectoryName": "serverless/hello-serverless/dev/1620899634342-2021-05-13T09:53:54.342Z",
     "artifact": "hello-serverless.zip"
   }
 }

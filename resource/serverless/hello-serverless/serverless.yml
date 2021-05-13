@@ -2,6 +2,9 @@ service: hello-serverless
 
 frameworkVersion: '2'
 
+plugins:
+  - serverless-offline
+
 provider:
   name: aws
   runtime: nodejs12.x
@@ -16,6 +19,12 @@ functions:
     handler: handler.hello
     memorySize: 256
     timeout: 4
+    vpc:
+      securityGroupIds:
+        - sg-8a07c1e4
+      subnetIds:
+        - subnet-7458830f
+        - subnet-480c2f20
 
   add:
     handler: add.add
@@ -24,3 +33,28 @@ functions:
           path: math/add
           method: post
           cors: true
+
+  addBm:
+    handler: add-bm.add
+    events:
+      - http:
+          path: math/addBm
+          method: post
+          integration: lambda
+          request:
+            template:
+              application/json: >
+                #set($inputRoot = $input.path('$'))
+                {
+                  "num1": $inputRoot.input.operand1,
+                  "num2": $inputRoot.input.operand2
+                }
+          response:
+            headers:
+              Access-Control-Allow-Origin: "'*'"
+              Content-Type: "'application/json'"
+            template: >
+              #set($inputRoot = $input.path('$'))
+              {
+                "result": $inputRoot
+              }
