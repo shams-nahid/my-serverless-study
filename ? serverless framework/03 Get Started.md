@@ -77,3 +77,9 @@ resources:
               ReadCapacityUnits: 1
               WriteCapacityUnits: 1
 ```
+
+Run the app locally,
+
+```bash
+sls offline
+```
