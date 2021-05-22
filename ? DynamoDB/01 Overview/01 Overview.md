@@ -2,6 +2,12 @@
 
 ---
 
+Relational database is not efficient when it comes to deal with largely un structured data in high volume and high frequency. In this case, NoSQL or cloud database like dynamoDB come to play.
+
+Here we will dive into dynamoDB and get the basic concept of it.
+
+> There is no learning curve for dynamoDB but best practices are factor for critical business success
+
 **Overview**
 
 - Serverless cloud no-sql database (No server/backedn infrastructire)
@@ -11,6 +17,7 @@
 
 **Advantages**
 
+- Serverless
 - Managed NoSQL database
 - Scaling
   - On Demand
@@ -18,5 +25,5 @@
 - Unlimited concurrent Read/Write
 - Single digit mili second latency
 - Suv microsecond lantency with caching (DAX)
-
-> No learning curve but best practices are factor for critical business success
+- Very much cost effective
+- Fault tolerant and secure
