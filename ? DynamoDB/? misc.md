@@ -1,0 +1,1 @@
+To avoid reserved key name like `timestamp`, use the expression-attribute-names
