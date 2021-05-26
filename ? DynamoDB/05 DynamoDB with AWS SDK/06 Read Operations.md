@@ -1,5 +1,4 @@
 ### Read Operations
-
 ---
 
 **Get By Primary Key**
