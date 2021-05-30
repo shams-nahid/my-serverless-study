@@ -11,16 +11,16 @@ const eventDate = moment().unix();
 documentClient.put({
     TableName: 'Test_TourAssistant_Event',
     Item: {
-        id,
-        eventDate,
-        eDate: 7
+        timeFrame: '2021-18',
+        summary: id,
+        eventDate: '10',
     },
-    ConditionExpression: 'id <> :id',
+    ConditionExpression: 'summary <> :summary',
     // ExpressionAttributeNames: {
     //     '#t': 'id'
     // },
     ExpressionAttributeValues: {
-        ':id': id
+        ':summary': id
     }
 }, (err, data) => {
     if (err) {

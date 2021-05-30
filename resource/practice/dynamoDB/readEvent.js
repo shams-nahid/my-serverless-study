@@ -5,16 +5,18 @@ AWS.config.update({ region: 'ap-south-1' });
 
 const documentClient = new AWS.DynamoDB.DocumentClient();
 
-const id = '13624625-99c4-468f-a0d9-53052e9f0928';
-
 documentClient.query({
     TableName: 'Test_TourAssistant_Event',
-    IndexName: 'eDate-index',
-    KeyConditionExpression: "eDate > :start",
+    IndexName: 'year-eventDate-index',
+    KeyConditionExpression: "#yr = :year and eventDate BETWEEN :start AND :end",
     ExpressionAttributeValues: {
-        ':start': 5,
-        // ':end': 8
-    }
+        ':year': 2017,
+        ':start': '10',
+        ':end': '20',
+    },
+    ExpressionAttributeNames:{
+        "#yr": "year"
+    },
 }, (err, data) => {
     if (err) {
         console.log(err);
