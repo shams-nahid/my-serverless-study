@@ -30,11 +30,24 @@ phases:
 
 **Set Up Code Pipeline**
 
+- Create a role for code build
+  - Go to IAM
+  - Go to roles
+  - Create role
+  - Select code build
+  - Add permission
+  - Add policy of `Administrator Access`
+  - Put a name
+  - Review and create the role
 - Go to `Code Pipeline`.
 - create code pipeline
 - name `tour-assistant-api-code-pipeline`
 - Let the role name as it is
-- Source Provider as `AWS Code Commit`
+- Source Provider
+  - as `AWS Code Commit`
+  - as `Github`
+    - Connect github
+    - Allow access
 - Repo name `tour-assistant-api`
 - Branch name `master`
 - Build Provider `AWS Codebuild`
@@ -46,7 +59,12 @@ phases:
   - Runtime `Standard`
   - Image `aws/codebuild/standard:4.0`
   - Role `codebuild serverless admin` **How to create this role**
-  - From additional config, add `ENV_NAME` as `prod`
+  - From additional config,
+    - add `ENV_NAME` as `prod`
+      - Make sure the stage under provider is `${opt:stage, 'dev'}`
+    - add `AWS_ACCESS_KEY_ID`
+    - add `AWS_DEFAULT_REGION`
+    - add `AWS_SECRET_ACCESS_KEY`
   - `Continue to Code Pipeline`
 - Skip Deploy Stage
 -
