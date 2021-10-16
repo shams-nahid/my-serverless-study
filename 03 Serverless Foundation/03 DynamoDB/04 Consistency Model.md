@@ -1,3 +1,0 @@
-### Consistency Model
-
----

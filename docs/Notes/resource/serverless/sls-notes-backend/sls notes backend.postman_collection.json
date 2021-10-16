@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "c337c7e0-dee2-4243-9baa-1fd59c7129a0",
+		"name": "sls notes backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Note",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "app_user_id",
+						"value": "test_user",
+						"type": "text"
+					},
+					{
+						"key": "app_user_name",
+						"value": "Test User",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Item\": {\n        \"title\": \"title 9\",\n        \"content\": \"content 9\",\n        \"cat\": \"g 3\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/prod/note",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"prod",
+						"note"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Note",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "app_user_id",
+						"value": "test_user",
+						"type": "text"
+					},
+					{
+						"key": "app_user_name",
+						"value": "Test User",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Item\": {\n        \"note_id\": \"test_user:0699603e-7726-4f0b-9881-0badd7d46b76\",\n        \"timestamp\": 1620987524,\n        \"title\": \"updated title\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/prod/note",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"prod",
+						"note"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Notes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "app_user_id",
+						"value": "test_user",
+						"type": "text"
+					},
+					{
+						"key": "app_user_name",
+						"value": "Test User",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/prod/notes",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"prod",
+						"notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Notes Paginated",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "app_user_id",
+						"value": "test_user",
+						"type": "text"
+					},
+					{
+						"key": "app_user_name",
+						"value": "Test User",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/prod/notes?limit=5&start=1620988604",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"prod",
+						"notes"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "start",
+							"value": "1620988604"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Note",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "app_user_id",
+						"value": "test_user",
+						"type": "text"
+					},
+					{
+						"key": "app_user_name",
+						"value": "Test User",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/prod/note/t/1620988595",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"prod",
+						"note",
+						"t",
+						"1620988595"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Note",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "app_user_id",
+						"value": "test_user",
+						"type": "text"
+					},
+					{
+						"key": "app_user_name",
+						"value": "Test User",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/prod/note/n/test_user:69c773e9-52aa-4235-b414-081394391984",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"prod",
+						"note",
+						"n",
+						"test_user:69c773e9-52aa-4235-b414-081394391984"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

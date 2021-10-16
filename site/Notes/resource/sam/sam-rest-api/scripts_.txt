@@ -1,0 +1,14 @@
+To validate sam template
+cmd: sam validate
+
+Building package
+cmd: sam package --template-file template.yaml --output-template-file sam.yaml --s3-bucket test-s3-for-sam
+
+Deploying package
+cmd: sam deploy --template-file sam.yaml --stack-name sam-rest-api --capabilities CAPABILITY_IAM
+
+Check logs
+cmd: sam logs -n GetUser --stack-name sam-rest-api
+
+Realtime Check logs
+cmd: sam logs -n GetUser --stack-name sam-rest-api --tail

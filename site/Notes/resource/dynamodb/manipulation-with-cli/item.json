@@ -1,0 +1,14 @@
+{
+  "user_id": {
+    "S": "uuid_7"
+  },
+  "timestamp": {
+    "N": "1621865867"
+  },
+  "title": {
+    "S": "title 7"
+  },
+  "content": {
+    "S": "content 7"
+  }
+}

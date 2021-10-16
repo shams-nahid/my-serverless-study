@@ -1,8 +1,0 @@
-create a serverless app
-cmd: sls create -t aws-nodejs -p sls-cicd
-create a repo in code commit
-create a IAM user
-  name: git-service-user
-  Access Type: Programmatic Access
-Go to Users => Security Credentials => HTTPS Git credentials for AWS CodeCommit
-Use the credential for the further authentication

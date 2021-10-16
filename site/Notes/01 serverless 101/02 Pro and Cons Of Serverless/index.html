@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Shams Nahid">
+        <link rel="canonical" href="http://advanced-js.shams-nahid.com/Notes/01 serverless 101/02 Pro and Cons Of Serverless/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>02 Pro and Cons Of Serverless - Advance JS Study Notes</title>
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link href="../../../css/extra.css" rel="stylesheet">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../../..">Advance JS Study Notes</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../../..">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notes <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">01 serverless 101</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../01 Serverless Computing/">01 Serverless Computing</a>
+</li>
+            
+<li class="active">
+    <a href="./">02 Pro and Cons Of Serverless</a>
+</li>
+            
+<li >
+    <a href="../03 Major Players/">03 Major Players</a>
+</li>
+            
+<li >
+    <a href="../04 Core Serverless Services/">04 Core Serverless Services</a>
+</li>
+            
+<li >
+    <a href="../05 Framework and CI-CD Overview/">05 Framework and CI CD Overview</a>
+</li>
+            
+<li >
+    <a href="../05 Use Cases/">05 Use Cases</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">02 hello world</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../02 hello-world/01 Hello World Mock API/">01 Hello World Mock API</a>
+</li>
+            
+<li >
+    <a href="../../02 hello-world/02 First Lambda Method/">02 First Lambda Method</a>
+</li>
+            
+<li >
+    <a href="../../02 hello-world/03 Integrate a Lambda Function with API Gateway/">03 Integrate a Lambda Function with API Gateway</a>
+</li>
+            
+<li >
+    <a href="../../02 hello-world/04 Manipulating Response/">04 Manipulating Response</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">03 Environment Setup</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../03 Environment Setup/01 Local Environment Setup/">01 Local Environment Setup</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">03 Serverless Foundation</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#">01 Lambda</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../03 Serverless Foundation/01 Lambda/01 Quick Overview/">01 Quick Overview</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/01 Lambda/02 Console Walk Through/">02 Console Walk Through</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/01 Lambda/03 Permission Model/">03 Permission Model</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/01 Lambda/04 Lambda Handler Syntax/">04 Lambda Handler Syntax</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/01 Lambda/05 Event/">05 Event</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/01 Lambda/06 Context/">06 Context</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/01 Lambda/07 Upload Code With Zip File/">07 Upload Code With Zip File</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/01 Lambda/08 Resize Image With S3 Event/">08 Resize Image With S3 Event</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/01 Lambda/09 Limitations/">09 Limitations</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/01 Lambda/10 Pricing/">10 Pricing</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">02 API Gateway</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../03 Serverless Foundation/02 API Gateway/01 overview/">01 overview</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/02 API Gateway/02 Passing Path Params and Query String/">02 Passing Path Params and Query String</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/02 API Gateway/03 CORS Configuration/">03 CORS Configuration</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/02 API Gateway/04 POST Request/">04 POST Request</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/02 API Gateway/05 API Models And Schemas/">05 API Models And Schemas</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/02 API Gateway/06 Using API Models For Body Mapping/">06 Using API Models For Body Mapping</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/02 API Gateway/07 Gateway Response/">07 Gateway Response</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/02 API Gateway/08 Exporting API Doc/">08 Exporting API Doc</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/02 API Gateway/09 API Keys/">09 API Keys</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">03 DynamoDB</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../03 Serverless Foundation/03 DynamoDB/01 overview/">01 overview</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/03 DynamoDB/02 Compare with the SQL/">02 Compare with the SQL</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/03 DynamoDB/03 Data Types In DynamoDB/">03 Data Types In DynamoDB</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/03 DynamoDB/04 Consistency Model/">04 Consistency Model</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/03 DynamoDB/05 Capacity Unit/">05 Capacity Unit</a>
+</li>
+            
+<li >
+    <a href="../../03 Serverless Foundation/03 DynamoDB/06 Partitioning/">06 Partitioning</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">? DynamoDB</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../? DynamoDB/06 misc/">06 misc</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">01 Overview</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../? DynamoDB/01 Overview/01 Overview/">01 Overview</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/01 Overview/02 Architecture/">02 Architecture</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/01 Overview/03 Partition Behaviour/">03 Partition Behaviour</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/01 Overview/04 Key Design/">04 Key Design</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">02 Get Started</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../? DynamoDB/02 Get Started/01 Environment Setup/">01 Environment Setup</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/02 Get Started/02 Terminologies/">02 Terminologies</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/02 Get Started/03 Naming Convention/">03 Naming Convention</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/02 Get Started/04 Data Types/">04 Data Types</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/02 Get Started/05 Consistency Model/">05 Consistency Model</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/02 Get Started/06 Capacity Units/">06 Capacity Units</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/02 Get Started/07 Pricing/">07 Pricing</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/02 Get Started/08 Partitions/">08 Partitions</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/02 Get Started/09 Indexes/">09 Indexes</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/02 Get Started/10 LSI & GSI/">10 LSI & GSI</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/02 Get Started/11 Interacting With DynamoDB/">11 Interacting With DynamoDB</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">03 Interact DynamoDB with AWS Console</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../? DynamoDB/03 Interact DynamoDB with AWS Console/01 Table Create Operation/">01 Table Create Operation</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/03 Interact DynamoDB with AWS Console/02 Item CRUD/">02 Item CRUD</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/03 Interact DynamoDB with AWS Console/03 Console/">03 Console</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">04 Interact DynamoDB with AWS CLI</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../? DynamoDB/04 Interact DynamoDB with AWS CLI/01 Manipulating Table/">01 Manipulating Table</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/04 Interact DynamoDB with AWS CLI/02 Item Create, Update, Delete Operations/">02 Item Create, Update, Delete Operations</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/04 Interact DynamoDB with AWS CLI/03 Item Read Operation/">03 Item Read Operation</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">05 DynamoDB with AWS SDK</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../? DynamoDB/05 DynamoDB with AWS SDK/01 Get started/">01 Get started</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/05 DynamoDB with AWS SDK/02 Table Operation/">02 Table Operation</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/05 DynamoDB with AWS SDK/03 Item Write and Delete Operation/">03 Item Write and Delete Operation</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/05 DynamoDB with AWS SDK/04 Conditional Write Operation/">04 Conditional Write Operation</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/05 DynamoDB with AWS SDK/05 Atomic Counters/">05 Atomic Counters</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/05 DynamoDB with AWS SDK/06 Read Operations/">06 Read Operations</a>
+</li>
+            
+<li >
+    <a href="../../? DynamoDB/05 DynamoDB with AWS SDK/07 Pagination/">07 Pagination</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">? sam</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#">01 sam stack</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../? sam/01 sam stack/01 Hello World/">01 Hello World</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">02 sam CLI</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../? sam/02 sam CLI/01 setting up sam CLI/">01 setting up sam CLI</a>
+</li>
+            
+<li >
+    <a href="../../? sam/02 sam CLI/02 Hello World/">02 Hello World</a>
+</li>
+            
+<li >
+    <a href="../../? sam/02 sam CLI/03 Running API Gateway/">03 Running API Gateway</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">? serverless framework</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../? serverless framework/01 overview/">01 overview</a>
+</li>
+            
+<li >
+    <a href="../../? serverless framework/02 installation/">02 installation</a>
+</li>
+            
+<li >
+    <a href="../../? serverless framework/03 Get Started/">03 Get Started</a>
+</li>
+            
+<li >
+    <a href="../../? serverless framework/04 Set Up Git Repository/">04 Set Up Git Repository</a>
+</li>
+            
+<li >
+    <a href="../../? serverless framework/05 Add CI-CD To App/">05 Add CI CD To App</a>
+</li>
+            
+<li >
+    <a href="../../? serverless framework/06 Database Schema/">06 Database Schema</a>
+</li>
+            
+<li >
+    <a href="../../? serverless framework/07 Setting Up Custom Domain/">07 Setting Up Custom Domain</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Resource</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#">Sam</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#">Sam app</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../resource/sam/sam-app/">sam-app</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Serverless</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#">Sls notes app ui without auth</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../resource/serverless/sls-notes-app-ui-without-auth/readme/">Readme</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../01 Serverless Computing/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../03 Major Players/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/bmshamsnahid/Advance-JS-Study"><i class="fa fa-github"></i> GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#pro-and-cons-of-serverless">Pro and Cons Of Serverless</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h3 id="pro-and-cons-of-serverless">Pro and Cons Of Serverless</h3>
+<hr />
+<p>Section 1, lesson 9</p>
+<p><strong>Pros</strong></p>
+<ul>
+<li>No server managements</li>
+<li>Easy &amp; Efficient scaling</li>
+<li>Built in high available and fault tolerant</li>
+<li>Service integration</li>
+<li>No idle capacity</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>Vendor Lock Ins (Except Multi Provider Serverless)</li>
+<li>Public Cloud (Limited to local server implementation)</li>
+<li>Control limitation in hardware and os level</li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://shams-nahid.com/">Shams Nahid</a>.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

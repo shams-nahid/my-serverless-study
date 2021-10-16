@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/01 serverless 101/01 Serverless Computing/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/01 serverless 101/02 Pro and Cons Of Serverless/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/01 serverless 101/03 Major Players/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/01 serverless 101/04 Core Serverless Services/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/01 serverless 101/05 Framework and CI-CD Overview/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/01 serverless 101/05 Use Cases/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/02 hello-world/01 Hello World Mock API/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/02 hello-world/02 First Lambda Method/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/02 hello-world/03 Integrate a Lambda Function with API Gateway/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/02 hello-world/04 Manipulating Response/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Environment Setup/01 Local Environment Setup/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/01 Lambda/01 Quick Overview/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/01 Lambda/02 Console Walk Through/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/01 Lambda/03 Permission Model/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/01 Lambda/04 Lambda Handler Syntax/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/01 Lambda/05 Event/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/01 Lambda/06 Context/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/01 Lambda/07 Upload Code With Zip File/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/01 Lambda/08 Resize Image With S3 Event/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/01 Lambda/09 Limitations/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/01 Lambda/10 Pricing/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/02 API Gateway/01 overview/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/02 API Gateway/02 Passing Path Params and Query String/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/02 API Gateway/03 CORS Configuration/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/02 API Gateway/04 POST Request/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/02 API Gateway/05 API Models And Schemas/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/02 API Gateway/06 Using API Models For Body Mapping/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/02 API Gateway/07 Gateway Response/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/02 API Gateway/08 Exporting API Doc/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/02 API Gateway/09 API Keys/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/03 DynamoDB/01 overview/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/03 DynamoDB/02 Compare with the SQL/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/03 DynamoDB/03 Data Types In DynamoDB/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/03 DynamoDB/04 Consistency Model/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/03 DynamoDB/05 Capacity Unit/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/03 Serverless Foundation/03 DynamoDB/06 Partitioning/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/06 misc/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/01 Overview/01 Overview/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/01 Overview/02 Architecture/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/01 Overview/03 Partition Behaviour/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/01 Overview/04 Key Design/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/02 Get Started/01 Environment Setup/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/02 Get Started/02 Terminologies/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/02 Get Started/03 Naming Convention/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/02 Get Started/04 Data Types/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/02 Get Started/05 Consistency Model/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/02 Get Started/06 Capacity Units/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/02 Get Started/07 Pricing/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/02 Get Started/08 Partitions/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/02 Get Started/09 Indexes/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/02 Get Started/10 LSI & GSI/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/02 Get Started/11 Interacting With DynamoDB/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/03 Interact DynamoDB with AWS Console/01 Table Create Operation/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/03 Interact DynamoDB with AWS Console/02 Item CRUD/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/03 Interact DynamoDB with AWS Console/03 Console/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/04 Interact DynamoDB with AWS CLI/01 Manipulating Table/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/04 Interact DynamoDB with AWS CLI/02 Item Create, Update, Delete Operations/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/04 Interact DynamoDB with AWS CLI/03 Item Read Operation/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/05 DynamoDB with AWS SDK/01 Get started/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/05 DynamoDB with AWS SDK/02 Table Operation/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/05 DynamoDB with AWS SDK/03 Item Write and Delete Operation/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/05 DynamoDB with AWS SDK/04 Conditional Write Operation/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/05 DynamoDB with AWS SDK/05 Atomic Counters/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/05 DynamoDB with AWS SDK/06 Read Operations/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? DynamoDB/05 DynamoDB with AWS SDK/07 Pagination/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? sam/01 sam stack/01 Hello World/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? sam/02 sam CLI/01 setting up sam CLI/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? sam/02 sam CLI/02 Hello World/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? sam/02 sam CLI/03 Running API Gateway/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? serverless framework/01 overview/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? serverless framework/02 installation/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? serverless framework/03 Get Started/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? serverless framework/04 Set Up Git Repository/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? serverless framework/05 Add CI-CD To App/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? serverless framework/06 Database Schema/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/? serverless framework/07 Setting Up Custom Domain/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/resource/sam/sam-app/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://advanced-js.shams-nahid.com/Notes/resource/serverless/sls-notes-app-ui-without-auth/readme/</loc>
+     <lastmod>2021-10-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+</urlset>

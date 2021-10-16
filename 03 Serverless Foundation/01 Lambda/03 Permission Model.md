@@ -1,3 +1,0 @@
-### Permission Model
-
----
