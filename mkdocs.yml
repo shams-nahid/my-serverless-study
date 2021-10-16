@@ -1,9 +1,9 @@
 site_name: Advance JS Study Notes
-site_url: http://advanced-js.shams-nahid.com/
+site_url: http://serverless-study.shams-nahid.com/
 site_description: Advance JS Study notes
 site_author: Shams Nahid
 
-repo_url: https://github.com/bmshamsnahid/Advance-JS-Study
+repo_url: https://github.com/bmshamsnahid/my-serverless-study
 edit_uri: ''
 
 extra_css:
